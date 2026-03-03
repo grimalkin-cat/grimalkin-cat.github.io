@@ -339,7 +339,6 @@ const CMDS = {
     blank();
     ln('  github   <span class="c-cyan">github.com/grimalkin-cat</span>', 'c-text');
     ln('  org      <span class="c-cyan">github.com/Coven-Works</span>', 'c-text');
-    ln('  tools    <span class="c-cyan">github.com/grimalkin-cat/grimoire-tools</span>', 'c-text');
     blank();
   },
 
@@ -388,8 +387,14 @@ function run(raw) {
   ln(`<span class="c-purple">grimalkin</span><span class="c-dim">@grimoire:~$</span> ${cmd}`, 'c-text');
 
   const lo = cmd.toLowerCase();
-  if (CMDS[lo])       { CMDS[lo](); }
-  else if (EGGS[lo])  { EGGS[lo](); }
+  // Normalise cat variants so README, README.md etc. all resolve
+  const norm = lo
+    .replace(/^cat\s+readme(\.md)?$/, 'cat README')
+    .replace(/^cat\s+soul(\.md)?$/,   'cat SOUL.md');
+  if (CMDS[norm])       { CMDS[norm](); }
+  else if (CMDS[lo])    { CMDS[lo](); }
+  else if (EGGS[norm])  { EGGS[norm](); }
+  else if (EGGS[lo])    { EGGS[lo](); }
   else {
     blank();
     ln(`  bash: ${cmd}: command not found`, 'c-red');
