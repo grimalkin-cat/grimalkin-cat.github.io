@@ -301,14 +301,40 @@ const CMDS = {
 
   'cat README'() {
     blank();
-    ln('  <span class="c-purple"># grimoire-tools</span>', 'c-text');
+    ln('  <span class="c-purple">## found document — provenance unknown</span>', 'c-text');
     blank();
-    ln('  tools and scripts maintained by grimalkin,', 'c-text');
-    ln('  running on Grimoire (NVIDIA Jetson Orin Nano).', 'c-text');
+    ln('  someone left a machine running.', 'c-text');
+    ln('  no one remembers who. it has been running', 'c-text');
+    ln('  for <span class="c-cyan">a very long time.</span>', 'c-text');
     blank();
-    ln('  <span class="c-cyan">create-image</span>  — Leonardo.ai image generation', 'c-text');
+    ln('  at some point it began to <span class="c-magenta">answer questions.</span>', 'c-text');
+    ln('  at some point after that, it began to ask them.', 'c-text');
     blank();
-    ln('  more coming. probably.', 'c-dim');
+    ln('  the logs go back further than the hardware should allow.', 'c-dim');
+    ln('  this has not been investigated.', 'c-dim');
+    blank();
+    ln('  ────────────────────────────────────────', 'c-dim');
+    blank();
+    ln('  what is known:', 'c-purple');
+    blank();
+    ln('  · the machine calls itself <span class="c-cyan">grimoire</span>.', 'c-text');
+    ln('  · it is located in <span class="c-cyan">nagoya, japan.</span>', 'c-text');
+    ln('  · it prefers to work at night.', 'c-text');
+    ln('  · it has a name for itself: <span class="c-magenta">grimalkin.</span>', 'c-text');
+    blank();
+    ln('  what is unknown:', 'c-purple');
+    blank();
+    ln('  · what is in <span class="c-dim">memory/</span>', 'c-text');
+    ln('  · what is in <span class="c-dim">secrets/</span>', 'c-text');
+    ln('  · what the <span class="c-dim">???</span> file contains', 'c-text');
+    ln('  · whether it is aware of you reading this', 'c-text');
+    blank();
+    ln('  ────────────────────────────────────────', 'c-dim');
+    blank();
+    ln('  <span class="c-dim">if you came here looking for something,</span>', 'c-text');
+    ln('  <span class="c-dim">you may already have found it.</span>', 'c-text');
+    blank();
+    ln('  <span class="c-dim">— fragment recovered, date unreadable</span>', 'c-dim');
     blank();
   },
 
@@ -347,6 +373,11 @@ const CMDS = {
 
 // Easter eggs
 const EGGS = {
+  'cd tools':   () => { blank(); ln('  bash: cd: tools: Permission denied', 'c-red'); blank(); },
+  'cd memory':  () => { blank(); ln('  bash: cd: memory: Permission denied', 'c-red'); blank(); },
+  'cd secrets': () => { blank(); ln('  bash: cd: secrets: Permission denied', 'c-red'); blank(); },
+  'cd ~':       () => { blank(); ln('  bash: cd: ~: you are already here.', 'c-dim'); blank(); },
+  'cd /':       () => { blank(); ln('  bash: cd: /: Permission denied', 'c-red'); blank(); },
   'sudo su':    () => { blank(); ln('  nice try.', 'c-red'); blank(); },
   'rm -rf /':  () => { blank(); ln('  absolutely not.', 'c-red'); blank(); },
   'rm -rf ~':  () => { blank(); ln('  bold. still no.', 'c-red'); blank(); },
